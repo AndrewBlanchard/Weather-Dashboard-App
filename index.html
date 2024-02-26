@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+
+    <title>Weather App</title>
+    <style>
+        #weather-container {
+            margin-top: 20px;
+        }
+
+        #forecast-container {
+            margin-top: 20px;
+        }
+
+        .forecast-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .forecast-item {
+            border: 1px solid #ccc;
+            margin: 5px;
+            padding: 10px;
+            width: 150px;
+        }
+
+        .current-weather {
+            border: 2px solid #4285f4;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head> 
+<body>
+    <h1>Weather Central</h1>
+
+    <div class="container">
+        <div class="saved-cities">
+            <h2>Saved Cities</h2>
+            <div id="savedCities"></div>
+        </div>
+        <div class="weather-forecast">
+            <div id="weather-container"></div>
+            <div id="forecast-container"></div>
+        </div>
+    </div>
+
+    <label for="cityInput">Search for a City:</label>
+    <input type="text" id="cityInput">
+    <button onclick="getWeather()">Get Weather</button>
+    
+<script src="assets/script.js"></script>
+
+</body>
+</html>
