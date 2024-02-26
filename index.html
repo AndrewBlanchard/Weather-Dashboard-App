@@ -39,19 +39,18 @@
     <h1>Weather Central</h1>
 
     <div class="container">
+        <div class="weather-forecast">
+            <label for="cityInput">Search for a City:</label>
+            <input type="text" id="cityInput">
+            <button onclick="getWeather()">Get Weather</button>
+            <div id="weather-container"></div>
+            <div id="forecast-container"></div>
+        </div>
         <div class="saved-cities">
             <h2>Saved Cities</h2>
             <div id="savedCities"></div>
         </div>
-        <div class="weather-forecast">
-            <div id="weather-container"></div>
-            <div id="forecast-container"></div>
-        </div>
     </div>
-
-    <label for="cityInput">Search for a City:</label>
-    <input type="text" id="cityInput">
-    <button onclick="getWeather()">Get Weather</button>
     
 <script src="assets/script.js"></script>
 

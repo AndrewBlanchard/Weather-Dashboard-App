@@ -8,6 +8,7 @@ body {
 
 h1 {
     text-align: center;
+    padding: 20px; 
 } 
 
 label[for="cityInput"] {
@@ -29,6 +30,26 @@ button {
 
 button {
     cursor: pointer;
+}
+
+.container {
+    display: flex;
+}
+
+.saved-cities {
+    margin-left: 20px;
+}
+
+.saved-city {
+    background-color: #114e60;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+} 
+
+.weather-forecast {
+    flex: 1;
 }
 
 .current-weather {
@@ -68,6 +89,9 @@ button {
     margin: 20px, 20px, 0px, 20px;
 }
 
+h2 {
+    margin-left: 20px;
+}
 .forecast-list {
     overflow-x: auto; 
     white-space: nowrap; 
@@ -76,7 +100,7 @@ button {
 .forecast-item {
     display: inline-block; 
     border: 1px solid #444;
-    margin: 10px;
+    margin: 20px;
     padding: 15px;
     border-radius: 10px;
     background-color: #333;
@@ -96,9 +120,9 @@ button {
 
 #savedCities button {
     
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 8px 12px;
     font-size: 14px;
-    border: none;
+    border: 1px solid #444;
     
 }
