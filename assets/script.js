@@ -1,7 +1,7 @@
 function getWeather() {
     const apiKey = '8013a57678a95a589595d0dfb3aa7dee';
     const cityInput = document.getElementById('cityInput').value.trim();
-    const weatherContainer = document.getElementById('weather-container');
+    const weatherContainer = document.querySelector('.weather-container'); // Changed to querySelector
     const forecastContainer = document.getElementById('forecast-container');
 
     if (cityInput === '') {
@@ -34,68 +34,30 @@ function getWeather() {
 }
 
 function displayWeather(weatherData, container) {
-    console.log(weatherData);
     const temperatureFahrenheit = convertKelvinToFahrenheit(weatherData.main.temp);
     const description = weatherData.weather[0].description;
     const weatherIcon = weatherData.weather[0].icon;
     const windSpeed = weatherData.wind.speed;
     const humidity = weatherData.main.humidity;
 
-    const currentWeatherHtml = `
-        <div class="current-weather">
-            <h2>Current Weather in ${weatherData.name}</h2>
-            <div class="current-weather-details">
-                <p>Temperature: ${temperatureFahrenheit} °F</p>
-                <p>Description: ${description}</p>
-                <p>Wind Speed: ${windSpeed} m/s</p>
-                <p>Humidity: ${humidity}%</p>
-                <img src="http://openweathermap.org/img/wn/${weatherIcon}.png" alt="${description}">
-            </div>
+    container.innerHTML = `
+        <h2>Current Weather in ${weatherData.name}</h2>
+        <div class="current-weather-details">
+            <p>Temperature: ${temperatureFahrenheit} °F</p>
+            <p>Description: ${description}</p>
+            <p>Wind Speed: ${windSpeed} m/s</p>
+            <p>Humidity: ${humidity}%</p>
+            <img src="http://openweathermap.org/img/wn/${weatherIcon}.png" alt="${description}">
         </div>
     `;
-    
-    container.insertAdjacentHTML('beforebegin', currentWeatherHtml);
-}
-
-
-function saveCity(city) {
-    let cities = JSON.parse(localStorage.getItem('cities')) || [];
-    if (cities.length >= 4) {
-        cities.shift(); // Remove the oldest city if there are already 5 cities
-    }
-    cities.push(city);
-    localStorage.setItem('cities', JSON.stringify(cities));
-    displaySavedCities(cities);
-}
-
-function displaySavedCities(cities) {
-    const savedCitiesContainer = document.getElementById('savedCities');
-    savedCitiesContainer.innerHTML = '';
-    cities.forEach(city => {
-        const button = document.createElement('button');
-        button.textContent = city;
-        button.onclick = function() {
-            // When a saved city button is clicked, fetch and display its weather and forecast
-            document.getElementById('cityInput').value = city;
-            getWeather();
-        };
-        savedCitiesContainer.appendChild(button);
-    });
-}
-
-window.onload = function() {
-    // On page load, display the last 5 searched cities
-    const cities = JSON.parse(localStorage.getItem('cities')) || [];
-    displaySavedCities(cities);
-};
-
-function displayWeather(weatherData, container) {
-    const temperatureFahrenheit = convertKelvinToFahrenheit(weatherData.main.temp);
-    container.innerHTML = `<h2>Current Weather in ${weatherData.name}</h2>`;
-    container.innerHTML += `<p>Temperature: ${temperatureFahrenheit} °F</p>`;
 }
 
 function displayForecast(forecastData, container) {
+    if (!forecastData.city || !forecastData.city.name) {
+        console.error('City name not found in forecast data');
+        return;
+    }
+
     container.innerHTML = `<h2>5-Day Forecast for ${forecastData.city.name}</h2>`;
     container.innerHTML += '<div class="forecast-list">';
 
@@ -132,6 +94,37 @@ function displayForecast(forecastData, container) {
     container.innerHTML += '</div>';
 }
 
+function saveCity(city) {
+    let cities = JSON.parse(localStorage.getItem('cities')) || [];
+    if (cities.length >= 4) {
+        cities.shift(); 
+    }
+    cities.push(city);
+    localStorage.setItem('cities', JSON.stringify(cities));
+    displaySavedCities(cities);
+}
+
+function displaySavedCities(cities) {
+    const savedCitiesContainer = document.getElementById('savedCities');
+    savedCitiesContainer.innerHTML = '';
+    cities.forEach(city => {
+        const button = document.createElement('button');
+        button.textContent = city;
+        button.onclick = function() {
+          
+            document.getElementById('cityInput').value = city;
+            getWeather();
+        };
+        savedCitiesContainer.appendChild(button);
+    });
+}
+
+window.onload = function() {
+    // On page load, display the last 5 searched cities
+    const cities = JSON.parse(localStorage.getItem('cities')) || [];
+    displaySavedCities(cities);
+};
+
 function convertKelvinToFahrenheit(kelvin) {
     return ((kelvin - 273.15) * 9 / 5 + 32).toFixed(2);
 }
@@ -148,3 +141,4 @@ function groupForecastDataByDay(forecastData) {
     });
     return groupedData;
 }
+
