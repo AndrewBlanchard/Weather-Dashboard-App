@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px; 
+} 
+
+label[for="cityInput"] {
+    display: block;
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+input[type="text"],
+button {
+    margin-left: 20px; 
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+button {
+    cursor: pointer;
+    margin-bottom: 20px; 
+}
+
+#cityInput {
+    margin-bottom: 20px; 
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Aligns items with space between them */
+}
+
+.saved-cities {
+    margin: 20px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: #333;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    width: 20%; /* Adjust width as needed */
+}
+
+.saved-cities h2 {
+    margin: 0; 
+}
+
+.saved-city {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+    width: 10px;
+}
+
+.weather-container {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    width: 40%; /* Adjust width as needed */
+}
+
+.forecast-container {
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    padding: 20px;
+}
+
+h2 {
+    margin-left: 20px;
+}
+
+.forecast-list {
+    overflow-x: auto; 
+    white-space: nowrap; 
+}
+
+.forecast-item {
+    display: inline-block; 
+    border: 1px solid #444;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #333;
+    border: 1px solid #ccc;
+}
+
+.forecast-item p {
+    margin: 5px 0;
+}
+
+.forecast-item p:first-child {
+    font-weight: bold;
+}
+
+#savedCities {
+    margin: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#savedCities button {
+    margin-right: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
