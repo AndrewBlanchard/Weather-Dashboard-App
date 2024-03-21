@@ -44,27 +44,27 @@ button {
 }
 
 .saved-cities {
-    margin: 20px;
-    padding: 20px;
-    font-size: 20px;
-    background-color: #333; 
+    margin: 0;
+    padding: 10px 20px;
+    background-color: #333;
     border: 1px solid #ccc;
-    border-radius: 10px; 
-    text-align: center; 
-    width: 200px;
-}
+    text-align: center;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}    
 
 .saved-cities h2 {
     margin: 0; 
 }
 
 .saved-city {
-    margin-bottom: 10px;
+    margin: 5px;
     padding: 8px 12px;
     border-radius: 10px;
-    display: block;
-    text-align: center;
-    width: 10px;
+    display: inline-block;
+    width: 100px;
 }
 
 
@@ -120,7 +120,7 @@ h2 {
 #savedCities {
     margin: 20px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-wrap: wrap;
 }
 
 #savedCities button {
