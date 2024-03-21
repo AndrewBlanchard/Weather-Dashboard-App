@@ -100,7 +100,7 @@ function displayForecast(forecastData, container) {
 
 function saveCity(city) {
     let cities = JSON.parse(localStorage.getItem('cities')) || [];
-    if (cities.length >= 4) {
+    if (cities.length >= 9) {
         cities.shift(); 
     }
     cities.push(city);
