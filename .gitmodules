@@ -1,0 +1,3 @@
+[submodule "Weather-Dashboard-App"]
+path = Weather-Dashboard-App
+url = https://github.com/AndrewBlanchard/Weather-Dashboard-App.git 
