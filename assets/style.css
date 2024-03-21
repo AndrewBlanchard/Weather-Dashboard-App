@@ -41,18 +41,17 @@ button {
 
 .container {
     display: flex;
-    justify-content: space-between; /* Aligns items with space between them */
 }
 
 .saved-cities {
     margin: 20px;
     padding: 20px;
     font-size: 20px;
-    background-color: #333;
+    background-color: #333; 
     border: 1px solid #ccc;
-    border-radius: 10px;
-    text-align: center;
-    width: 20%; /* Adjust width as needed */
+    border-radius: 10px; 
+    text-align: center; 
+    width: 20%;
 }
 
 .saved-cities h2 {
@@ -68,27 +67,33 @@ button {
     width: 10px;
 }
 
+
+.weather-forecast {
+    flex: 1;
+}
+
+
 .weather-container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
     background-color: #333;
-    padding: 20px;
+    padding: 10px; 
     border-radius: 5px;
     margin: 20px;
     border: 1px solid #ccc;
-    width: 40%; /* Adjust width as needed */
+    width: 500px; 
+    height: 300px; 
 }
 
 .forecast-container {
-    margin: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #333;
-    padding: 20px;
+    margin: 20px, 20px, 0px, 20px;
 }
 
 h2 {
     margin-left: 20px;
 }
-
 .forecast-list {
     overflow-x: auto; 
     white-space: nowrap; 
