@@ -24,9 +24,13 @@ function getWeather() {
         })
         .then(response => response.json())
         .then(forecastData => {
-            // Display 5-day forecast data
-            displayForecast(forecastData, forecastContainer);
-        })
+            const forecastContainer = document.getElementById('forecast-container');
+      if (forecastContainer) {
+        displayForecast(forecastData, forecastContainer);
+      } else {
+        console.error('Error: forecastContainer element not found');
+      }
+    })
         .catch(error => {
             console.error('Error fetching data:', error);
             alert('Error fetching data. Please try again.');
