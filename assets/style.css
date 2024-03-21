@@ -64,7 +64,7 @@ button {
     padding: 8px 12px;
     border-radius: 10px;
     display: inline-block;
-    width: 80px;
+    width: 100px;
 }
 
 
@@ -83,8 +83,8 @@ button {
     border-radius: 5px;
     margin: 20px;
     border: 1px solid #ccc;
-    width: 300px; 
-    height: 270px; 
+    width: 250px; 
+    height: 285px; 
 }
 
 .forecast-container {
